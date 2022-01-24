@@ -30,12 +30,17 @@ function App() {
     setTasks(newtasks);
   }
 
+  function handleRemoveTask(taskid) {
+    const newtasks = tasks.filter((task) => task.id !== taskid);
+    setTasks(newtasks);
+  }
+
   return (
     <div className="container">
       <h1>Minhas tarefas</h1>
       <AddInput handleSetTask={handleSetTask}></AddInput>
 
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} handleRemoveTask={handleRemoveTask} />
     </div>
   );
 }

@@ -7,10 +7,35 @@
   padding: 15px 20px;
   display: flex;
   align-items: center;
-  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   transition: all 0.2s ease-in;
 }
 
 .task-container:hover {
   background-color: #444;
+}
+
+.task-tittle {
+  cursor: pointer;
+}
+
+.task-buttons {
+}
+
+.task-buttons button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: aqua;
+}
+
+.task-buttons button:hover {
+  color: rgba(0, 255, 255, 0.37);
+}
+
+.task-buttons button + button {
+  margin-left: 5px;
 }
