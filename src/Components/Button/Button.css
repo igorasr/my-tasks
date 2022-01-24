@@ -1,0 +1,16 @@
+button {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  background-color: aqua;
+  border: 1px solid aqua;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  flex: 2;
+}
+
+button:hover {
+  background-color: rgba(0, 255, 255, 0.37);
+  color: inherit;
+}
