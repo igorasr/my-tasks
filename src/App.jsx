@@ -1,22 +1,26 @@
-import react, { useState } from "react";
+import react, { useEffect, useState } from "react";
 import "./App.css";
 import Tasks from "./Components/Tasks";
 import AddInput from "./Components/AddInput";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: "1",
-      tittle: "Ler",
-      completed: false,
-    },
-    {
-      id: "2",
-      tittle: "Estudar",
-      completed: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("Tarefas"))
+  );
+
+  useEffect(() => {
+    localStorage.setItem("Tarefas", JSON.stringify(tasks));
+  }, [tasks]);
+
+  const handleTaskClick = (taskid) => {
+    const newtasks = tasks.map((task) => {
+      if (task.id === taskid) return { ...task, completed: !task.completed };
+
+      return task;
+    });
+    setTasks(newtasks);
+  };
 
   function handleSetTask(newtask) {
     const newtasks = [
@@ -40,7 +44,11 @@ function App() {
       <h1>Minhas tarefas</h1>
       <AddInput handleSetTask={handleSetTask}></AddInput>
 
-      <Tasks tasks={tasks} handleRemoveTask={handleRemoveTask} />
+      <Tasks
+        tasks={tasks}
+        handleRemoveTask={handleRemoveTask}
+        handleTaskClick={handleTaskClick}
+      />
     </div>
   );
 }
