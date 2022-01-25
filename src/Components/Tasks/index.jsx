@@ -1,4 +1,3 @@
-import react from "react";
 import "./Tasks.css";
 import Task from "../Task";
 

@@ -1,16 +1,15 @@
 .task-container {
+  position: relative;
   padding-right: 20px;
   max-width: 100%;
-  margin: 8px 0;
   color: white;
   background-color: gray;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.2s ease-in;
+  transition: background 0.2s ease-in;
 }
 
 .task-container:hover {

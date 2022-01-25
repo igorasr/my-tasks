@@ -15,13 +15,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
   color: #fff;
-  max-width: 100vw;
-  max-height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
 }
 
 h1 {

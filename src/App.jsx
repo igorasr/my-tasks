@@ -1,17 +1,22 @@
-import react, { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Tasks from "./Components/Tasks";
 import AddInput from "./Components/AddInput";
 import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("Tarefas"))
-  );
-
-  useEffect(() => {
-    localStorage.setItem("Tarefas", JSON.stringify(tasks));
-  }, [tasks]);
+  const [tasks, setTasks] = useState([
+    {
+      id: "1",
+      tittle: "ler",
+      completed: false,
+    },
+    {
+      id: "2",
+      tittle: "Estudar",
+      completed: false,
+    },
+  ]);
 
   const handleTaskClick = (taskid) => {
     const newtasks = tasks.map((task) => {
