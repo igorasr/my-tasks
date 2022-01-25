@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FiTrash } from "react-icons/fi";
 import { FaRegEdit } from "react-icons/fa";
 import TaskDecription from "../TaskDescription";
-
 import "./Task.css";
 
 const Task = ({ task, handleRemoveTask, handleTaskClick }) => {
