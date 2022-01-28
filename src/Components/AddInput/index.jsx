@@ -9,6 +9,12 @@ const AddInput = () => {
 
   const { handleSetTask } = useContext(TaskContext);
 
+  function handleKeyUp(e) {
+    if (e.code === "Enter" && inputData !== "") {
+      handleAddTaskClick();
+    }
+  }
+
   // Seta o state do input toda vez que ele é alterado
   function handleInputChange(e) {
     setInputData(e.target.value);
@@ -16,8 +22,12 @@ const AddInput = () => {
 
   // Funcao para adicionar as tarefas ao click do usuario
   function handleAddTaskClick() {
-    handleSetTask(inputData);
-    setInputData("");
+    if (inputData !== "" || inputData === null) {
+      handleSetTask(inputData);
+      setInputData("");
+    } else {
+      alert("Informe uma tarefa");
+    }
   }
 
   return (
@@ -25,6 +35,7 @@ const AddInput = () => {
       <div className="addinput-container">
         <input
           onChange={handleInputChange}
+          onKeyUp={handleKeyUp}
           value={inputData}
           type="text"
           placeholder="Adcione uma tarefa..."

@@ -14,7 +14,7 @@
 }
 
 .task-container:hover {
-  background-color: #444;
+  filter: brightness(1.2);
 }
 
 .task-tittle {
