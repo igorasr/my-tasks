@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { TaskContext } from "../../Context/TaskContext";
 import { FiTrash } from "react-icons/fi";
 import { FaRegEdit } from "react-icons/fa";
 import TaskDecription from "../TaskDescription";
 import "./Task.css";
 
-const Task = ({ task, handleRemoveTask, handleTaskClick }) => {
+const Task = ({ task }) => {
   const [open, setOpen] = useState(false);
+  const { handleTaskClick, handleRemoveTask } = useContext(TaskContext);
 
   return (
     <div>
@@ -35,7 +37,7 @@ const Task = ({ task, handleRemoveTask, handleTaskClick }) => {
           </button>
         </div>
       </div>
-      {open && <TaskDecription />}
+      {open && <TaskDecription description={task.description} />}
     </div>
   );
 };
